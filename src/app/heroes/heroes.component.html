@@ -1,0 +1,22 @@
+<!-- <h2>{{hero.name | uppercase}} Details</h2> -->
+<!-- <div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div> -->
+
+<!-- <div>
+    <label for="name">Hero name: </label>
+    <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div> -->
+
+<h2>My Heroes</h2>
+<ul class="heroes"> <!--heroes used at CSS-->
+    <li *ngFor="let hero of heroes"> <!--  Holds the mock heroes list -->
+        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span>
+            <span class="badge">{{hero.name}}</span>
+        </button>
+    </li>
+</ul>
+
+<!-- passing input info (user selected hero here) to child -->
+<!-- property binding to the hero property of hero-detail.component.ts  -->
+<app-hero-detail [hero] = "selectedHero" ></app-hero-detail>
